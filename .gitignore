@@ -1,0 +1,53 @@
+# =============================
+# Frontend (React + Vite + TypeScript)
+# =============================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/*.log
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+frontend/*.tsbuildinfo
+frontend/.vscode/
+frontend/.idea/
+
+frontend/.env
+frontend/.env.*
+frontend/.DS_Store
+
+# =============================
+# Backend (Spring Boot + Maven)
+# =============================
+backend/target/
+backend/out/
+backend/*.class
+backend/*.war
+backend/*.ear
+backend/*.jar
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/.idea/
+backend/*.ipr
+backend/*.iws
+backend/*.iml
+backend/.env
+backend/.env.*
+backend/**/generated/
+
+# =============================
+# Logs
+# =============================
+*.log
+
+# =============================
+# IDE / OS / Misc
+# =============================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
