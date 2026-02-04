@@ -23,6 +23,7 @@ frontend/.DS_Store
 # =============================
 backend/target/
 backend/out/
+backend/test
 backend/*.class
 backend/*.war
 backend/*.ear
