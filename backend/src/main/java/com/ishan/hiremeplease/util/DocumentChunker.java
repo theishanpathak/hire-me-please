@@ -38,7 +38,7 @@ public class DocumentChunker {
             chunks.add(new ChunkData(
                     currentSection,
                     line,
-                    i
+                    i+1
             ));
         }
 

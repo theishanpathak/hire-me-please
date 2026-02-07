@@ -8,7 +8,10 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Scheduler;
+import reactor.core.scheduler.Schedulers;
 
+import javax.print.Doc;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -25,7 +28,9 @@ public class DocumentProcessingService {
         this.documentChunkRepository = documentChunkRepository;
     }
 
-    
+
+
+    //this main service handles the reactive AI part
     public Mono<String> processDocument(String docuId, String documentText){
         //chunk the document using docuChunker:: this will give us List of chunked data
         List<ChunkData> chunks = documentChunker.chunkByLines(documentText);
@@ -46,12 +51,20 @@ public class DocumentProcessingService {
                         ))
                 )
                 .collectList()
+                .publishOn(Schedulers.boundedElastic()) //moving to a different thread to keep it working
                 .map(documentChunks -> {
-                    List<DocumentChunk> saved = documentChunkRepository.saveAll(documentChunks);
-                    return "Processed " + saved.size() + " chunks for document " + docuId;
+                    //transactional work for database action
+                    return saveAllAtOnce(documentChunks, docuId);
                  })
                 .onErrorResume(e -> Mono.just("Failed to process: " + e.getMessage()));
 
+    }
+
+    //All saved or nothing saved
+    @Transactional
+    public String saveAllAtOnce(List<DocumentChunk> chunks, String docuId){
+        documentChunkRepository.saveAll(chunks);
+        return "Succesfully saved " + chunks.size() + " of the document " + docuId;
     }
 
     public List<DocumentChunk> getById(String docuId){
