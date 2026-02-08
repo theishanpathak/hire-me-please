@@ -2,6 +2,7 @@ package com.ishan.hiremeplease.service;
 
 import com.ishan.hiremeplease.dto.EmbeddingRequest;
 import com.ishan.hiremeplease.dto.EmbeddingResponse;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -9,14 +10,11 @@ import reactor.core.publisher.Mono;
 @Service
 public class OllamaService {
     private final WebClient webClient;
-    private static final String OLLAMA_URL = "http://localhost:11434/api";
     private static final String EMBEDDING_MODEL = "nomic-embed-text";
 
 
-    public OllamaService() {
-        this.webClient = WebClient.builder()
-                .baseUrl(OLLAMA_URL)
-                .build();
+    public OllamaService(@Qualifier("ollamaClient") WebClient webClient) {
+        this.webClient = webClient;
     }
 
     public  Mono<float[]> generateEmbedding(String text){

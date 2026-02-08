@@ -10,12 +10,13 @@ import java.util.Set;
 @Component
 public class DocumentChunker {
     private static final Set<String> COMMON_HEADERS = Set.of(
-            "requirements", "required qualifications", "required skills",
+            "requirements", "required qualifications", "required skills", "required",
             "responsibilities", "what you'll do", "about the role",
             "nice to have", "preferred qualifications", "preferred skills",
             "bonus points", "benefits", "about us", "about the company",
-            "qualifications", "skills", "experience", "education",
-            "job description", "overview", "summary", "we offer", "pay transparency", "pay range"
+            "qualifications", "skills", "experience", "education", "additional notes", "looking for",
+            "job description", "overview", "summary", "we offer", "pay transparency", "pay range", "preferred",
+            "rewards", "rewards & benefits at", "what we're looking for", "first year will include"
     );
 
     public List<ChunkData> chunkByLines(String document){
