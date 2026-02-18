@@ -1,7 +1,7 @@
 package com.ishan.hiremeplease.service;
 
-import com.ishan.hiremeplease.dto.EmbeddingRequest;
-import com.ishan.hiremeplease.dto.EmbeddingResponse;
+import com.ishan.hiremeplease.dto.embedding.EmbeddingRequest;
+import com.ishan.hiremeplease.dto.embedding.EmbeddingResponse;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
