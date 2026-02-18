@@ -1,0 +1,121 @@
+/* App.css */
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --border: #e2e8f0;
+  --success: #22c55e;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 40px;
+  font-weight: 800;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #64748b;
+}
+
+section {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 24px;
+  background: #fafafa;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+input[type="file"] {
+  margin-bottom: 15px;
+  display: block;
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+button:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.match-section {
+  text-align: center;
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.match-card {
+  border: 2px solid var(--success);
+  background: #f0fdf4;
+  padding: 24px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.status-box {
+  background: #334155;
+  color: #f1f5f9;
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.chunk-item {
+  background: white;
+  padding: 12px;
+  border-left: 4px solid var(--primary);
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 30px 0;
+}
